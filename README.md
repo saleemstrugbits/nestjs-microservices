@@ -150,6 +150,53 @@ Learn more about the power of Turborepo:
     nest new orders-service
     nest new product-service
 
-3: now create start:dev command in turbo repo package.json
+4: now create start:dev command in turbo repo package.json and add also in turbo.json task
+
+5: now in root folder install nestjs micoservices beecaseu it is use as sheard resource for all services 
+   
+   npm install @nestjs/microservices
+
+6: now convert your nestjs normal applications to microservices application
+
+   update the main.ts inside every service to use MicroserviceOptions, Transport
 
 
+7: generate orders controller insdie order service
+   
+   nest g co orders --no-spec
+
+8: @MessagePattern vs @EventPattern
+
+1. @MessagePattern
+
+Request/Response style → like asking a question and waiting for an answer.
+
+Example:
+
+Orders Service → asks Payment Service: "create_payment"
+
+Payment Service → replies with "payment_success"
+
+So you get a response back.
+
+2. @EventPattern
+
+Fire-and-forget style → like making an announcement.
+
+Example:
+
+Payment Service → emits "payment_success" event
+
+Orders Service, Notification Service, Analytics Service → all listen to it.
+
+Nobody replies — the service just broadcasts an event.
+
+So you don’t expect a response, but many services can react.
+
+9: create api gatway service 
+
+   nest new api-gateway
+   
+   import the all MICROSERVICES_CLIENTS inside app.module.ts of api gateway service using ClientModule.register which comes form @nestjs/microservices
+
+   
