@@ -133,3 +133,23 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
 - [Configuration Options](https://turborepo.com/docs/reference/configuration)
 - [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+
+
+
+# nestjs micrservices
+
+# create a monorepo with terbo 
+
+1: npx create-turbo@latest microservices
+
+3: now for creating nestjs projects go to inside apps folder and run command 
+    
+    npm i -g @nestjs/cli
+
+    nest new users-service
+    nest new orders-service
+    nest new product-service
+
+3: now create start:dev command in turbo repo package.json
+
+
